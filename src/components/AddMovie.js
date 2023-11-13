@@ -61,7 +61,7 @@ const AddMovie = ({ addMovie }) => {
     <>
     <div className="search-box">
       {/* Button to trigger the modal */}
-      <button type="button" class="button-85" onClick={handleShow}>
+      <button type="button" className="button-85" onClick={handleShow}>
         + Add a new movie
       </button>
       </div>

@@ -10,7 +10,7 @@ const MovieCard = ({ movie }) => {
   return (
     <Col md={3} sm={6} xs={12} className="mb-4">
       {/* Movie card container with Bootstrap styling */}
-      <Link to={`/moviedetail/${movie.id}`}>
+     
 
       <div className="card h-100 ">
         {/* Movie poster image */}
@@ -21,8 +21,10 @@ const MovieCard = ({ movie }) => {
           <h5 className="card-title">{movie.title}</h5>
           {/* Movie description */}
           <p>{movie.description}</p>
+          <Link to={`/trailer/${movie.id}`}> Trailer</Link>
+
           {/* Star rating component */}
-          <div class="overlay overlay_1">
+          <div className="overlay overlay_1">
             {/* Displaying star rating with react-star-rating-component */}
             <h6>
               <StarRatingComponent
@@ -36,7 +38,6 @@ const MovieCard = ({ movie }) => {
           <p className="card-text"></p>
         </div>
       </div>
-      </Link>
 
     </Col>
   );

@@ -6,9 +6,8 @@ import "./App.css";
 import MoviesList from "./components/MoviesList";
 import Search from "./components/Search";
 import AddMovie from "./components/AddMovie";
-import {Routes,Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import MovieDetail from "./components/MovieDetail";
-
 
 // State hooks for search input, rating filter, and movie list
 const App = () => {
@@ -31,7 +30,7 @@ const App = () => {
       title: "John Wick: Chapter 4",
       year: "2023",
       type: "Movie",
-      description: "A description of Shanty Town...",
+      description: "A description of Jhon wick...",
       trailer: "https://www.youtube.com/embed/your-trailer-id",
       rate: "3",
       poster:
@@ -59,7 +58,6 @@ const App = () => {
       poster:
         "https://m.media-amazon.com/images/M/MV5BMjE2MTg1NDQ2MF5BMl5BanBnXkFtZTgwMDkxMzMzNDM@._V1_SX300.jpg",
     },
-
   ]);
   // Handler function to update the search input text
 
@@ -79,22 +77,25 @@ const App = () => {
   // JSX for the App component
   return (
     <>
-      <AddMovie addMovie={addMovie} />
       <div className="input-search">
-        <Search search={search} setRate={setRate} />{" "}
+        <AddMovie addMovie={addMovie} />
+        <Search search={search} setRate={setRate} />
       </div>
       <Routes>
-      <Route path="/moviedetail" element={<MovieDetail/>} />
-     </Routes >
-      <MoviesList
-        movies={movies.filter(
-          (el) =>
-            el.rate >= rating &&
-            el.title.toLowerCase().includes(keysearch.toLowerCase())
-        )}
-      />
-
-
+        <Route
+          path="/"
+          element={
+            <MoviesList
+              movies={movies.filter(
+                (el) =>
+                  el.rate >= rating &&
+                  el.title.toLowerCase().includes(keysearch.toLowerCase())
+              )}
+            />
+          }
+        />
+        <Route path="/trailer/:id" element={<MovieDetail list={movies} />} />
+      </Routes>
     </>
   );
 };
