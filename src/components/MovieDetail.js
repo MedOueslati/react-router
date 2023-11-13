@@ -6,12 +6,13 @@ const  MovieDetail =({list}) => {
   const foundmovie =  list.find(el => el.id ===  +id)
   
   return (
-    <div>
-      <h1>{foundmovie.title}</h1>
+    <div className='container moviedetail'>
+      <h1 >{foundmovie.title}</h1>
+      <h4>{foundmovie.year}</h4>
       <iframe width="560" height="315" 
       src={foundmovie.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <h4>{foundmovie.description}</h4>
-<Link to='/' >Back Home</Link>
+      <p>{foundmovie.description}</p>
+      <Link to='/' >Back Home</Link>
     </div>
   )
 }
